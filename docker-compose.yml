@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  kusama-validator:
+    image: parity/polkadot:latest
+    command:
+      - "--base-path"
+      - "/data/kusama"
+      - "--chain"
+      - "kusama"
+      - "--validator"
+      - "--name"
+      - "${VALIDATOR_NAME}"
+    volumes:
+      - "./mnt/HC_Volume_100476844:/data/kusama"
+    environment:
+      VALIDATOR_NAME: LightGiantStaking

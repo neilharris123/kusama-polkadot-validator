@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  become: yes
+  tasks:
+    - name: Ensure NTP is installed
+      ansible.builtin.package:
+        name: ntp
+        state: present
+
+    - name: Start Kusama node using Docker Compose
+      ansible.builtin.docker_compose:
+        project_src: "{{ playbook_dir }}"
+        state: present
+        restarted: yes
+      environment:
+        VALIDATOR_NAME: "{{ validator_name }}"
