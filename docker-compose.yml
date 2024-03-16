@@ -12,5 +12,6 @@ services:
       - "${VALIDATOR_NAME}"
     volumes:
       - "./mnt/HC_Volume_100476844:/data/kusama"
+    restart: unless-stopped
     environment:
       VALIDATOR_NAME: LightGiantStaking
