@@ -1,0 +1,10 @@
+---
+- name: Ensure NTP and Landlock are configured
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Ensure NTP is installed
+      ansible.builtin.package:
+        name: ntp
+        state: present
